@@ -11,8 +11,16 @@ path = "src/day01/part1.rs"
 name = "day01_part2"
 path = "src/day01/part2.rs"
 
+[lib]
+name = "day02"
+path = "src/day02/day02.rs"
+
 [[bin]]
 name = "day02_part1"
 path = "src/day02/part1.rs"
+
+[[bin]]
+name = "day02_part2"
+path = "src/day02/part2.rs"
 
 [dependencies]

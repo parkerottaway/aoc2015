@@ -4,21 +4,9 @@ fn surface_area_of_box(length: u32, width: u32, height: u32) -> u32 {
     return 2 * (length * width + width * height + height * length);
 }
 
-fn build_sorted_dimension_vec(s: &str) -> Vec<u32> {
-    let mut split_dims: Vec<u32> = s
-        .split("x")
-        .filter_map(|e| match e.parse::<u32>().unwrap() {
-            0u32 => panic!("Encountered a zero dimension!"),
-            _ => Some(e.parse::<u32>().unwrap()),
-        })
-        .collect::<Vec<u32>>();
-    split_dims.sort();
-    return split_dims;
-}
-
 /// Total surface area plus the area of the smallest side.
 fn calculate_single_present_surface_area_needed(s: &str) -> u32 {
-    let sorted_dim: Vec<u32> = build_sorted_dimension_vec(s);
+    let sorted_dim: Vec<u32> = day02::build_sorted_dimension_vec(s);
     // Area of smallest side is the product of the two smallest dimensions.
     return surface_area_of_box(sorted_dim[0], sorted_dim[1], sorted_dim[2])
         + sorted_dim[0] * sorted_dim[1];
@@ -61,21 +49,21 @@ mod tests {
 
     #[test]
     fn dimension_vecs_sorted() {
-        assert_eq!(build_sorted_dimension_vec("2x2x2"), [2, 2, 2]);
-        assert_eq!(build_sorted_dimension_vec("3x2x1"), [1, 2, 3]);
-        assert_eq!(build_sorted_dimension_vec("7x8x9"), [7, 8, 9]);
+        assert_eq!(day02::build_sorted_dimension_vec("2x2x2"), [2, 2, 2]);
+        assert_eq!(day02::build_sorted_dimension_vec("3x2x1"), [1, 2, 3]);
+        assert_eq!(day02::build_sorted_dimension_vec("7x8x9"), [7, 8, 9]);
     }
 
     #[test]
     #[should_panic]
     fn panic_on_negative_dim() {
-        _ = build_sorted_dimension_vec("1x-2x3");
+        _ = day02::build_sorted_dimension_vec("1x-2x3");
     }
 
     #[test]
     #[should_panic]
     fn panic_on_zero_dim() {
-        _ = build_sorted_dimension_vec("99x99x0");
+        _ = day02::build_sorted_dimension_vec("99x99x0");
     }
 
     #[test]

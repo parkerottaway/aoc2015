@@ -14,8 +14,9 @@ area of the smallest side.
 
 For example:
 
-A present with dimensions 2x3x4 requires ![equation](https://latex.codecogs.com/svg.image?\bg{white}2&space;\times&space;6&space;&plus;&space;2&space;\times12&space;&plus;&space;2&space;\times&space;8&space;=&space;52&space;\textrm{&space;ft}^2)
+- A present with dimensions 2x3x4 requires ![equation](https://latex.codecogs.com/svg.image?\bg{white}2&space;\times&space;6&space;&plus;&space;2&space;\times12&space;&plus;&space;2&space;\times&space;8&space;=&space;52&space;\textrm{&space;ft}^2)
 of wrapping paper plus 6 square feet of slack, for a total of 58 square feet.
-A present with dimensions 1x1x10 requires ![equation](https://latex.codecogs.com/svg.image?\bg{white}2&space;\times&space;1&space;&plus;&space;2&space;\times&space;10&space;&plus;&space;2&space;\times&space;10&space;=&space;42&space;\textrm{&space;ft}^2)
+- A present with dimensions 1x1x10 requires ![equation](https://latex.codecogs.com/svg.image?\bg{white}2&space;\times&space;1&space;&plus;&space;2&space;\times&space;10&space;&plus;&space;2&space;\times&space;10&space;=&space;42&space;\textrm{&space;ft}^2)
 of wrapping paper plus 1 square foot of slack, for a total of 43 square feet.
+
 All numbers in the elves' list are in feet. How many total square feet of wrapping paper should they order?
