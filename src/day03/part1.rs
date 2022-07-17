@@ -1,50 +1,17 @@
 use std::collections::HashMap;
-use std::ops::{Add, Sub};
 use std::{env, fs};
 
-#[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
-struct Point {
-    x: i16,
-    y: i16,
-}
-
-impl Add for Point {
-    type Output = Self;
-
-    fn add(self, other: Self) -> Self {
-        Self {
-            x: self.x + other.x,
-            y: self.y + other.y,
-        }
-    }
-}
-
-impl Sub for Point {
-    type Output = Self;
-
-    fn sub(self, other: Self) -> Self {
-        Self {
-            x: self.x - other.x,
-            y: self.y - other.y,
-        }
-    }
-}
-
-impl Point {
-    fn new(x: i16, y: i16) -> Point {
-        return Point { x: x, y: y };
-    }
-}
+mod day03;
 
 fn count_houses_visited(directions_string: &str) -> u16 {
-    let move_north: Point = Point::new(1, 0);
-    let move_south: Point = Point::new(-1, 0);
-    let move_east: Point = Point::new(0, 1);
-    let move_west: Point = Point::new(0, -1);
+    let move_north: day03::Point = day03::Point::new(1, 0);
+    let move_south: day03::Point = day03::Point::new(-1, 0);
+    let move_east: day03::Point = day03::Point::new(0, 1);
+    let move_west: day03::Point = day03::Point::new(0, -1);
 
-    let mut houses_visited: HashMap<Point, ()> = HashMap::new();
+    let mut houses_visited: HashMap<day03::Point, ()> = HashMap::new();
 
-    let mut current_house: Point = Point::new(0, 0);
+    let mut current_house: day03::Point = day03::Point::new(0, 0);
 
     houses_visited.entry(current_house).or_insert(());
 
@@ -97,21 +64,21 @@ mod tests {
 
     #[test]
     fn point_addition_tests() {
-        let origin: Point = Point::new(0, 0);
-        let point_a: Point = Point::new(1, 0);
-        let point_b: Point = Point::new(0, 1);
-        let point_c: Point = Point::new(1, 1);
+        let origin: day03::Point = day03::Point::new(0, 0);
+        let point_a: day03::Point = day03::Point::new(1, 0);
+        let point_b: day03::Point = day03::Point::new(0, 1);
+        let point_c: day03::Point = day03::Point::new(1, 1);
         assert_eq!(origin + origin, origin);
         assert_eq!(point_a + point_b, point_c);
     }
 
     #[test]
     fn point_subtraction_tests() {
-        let origin: Point = Point::new(0, 0);
-        let point_c: Point = Point::new(1, 1);
+        let origin: day03::Point = day03::Point::new(0, 0);
+        let point_c: day03::Point = day03::Point::new(1, 1);
         assert_eq!(origin - origin, origin);
         assert_eq!(point_c - point_c, origin);
-        assert_eq!(origin - point_c, Point::new(-1, -1));
+        assert_eq!(origin - point_c, day03::Point::new(-1, -1));
     }
 
     #[test]
